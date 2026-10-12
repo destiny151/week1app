@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laundry Link</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Building laundry room</p>
+          <h1>Laundry Link</h1>
+        </div>
+        <div class="clock-wrap" aria-live="polite">
+          <span class="status-dot"></span>
+          <div>
+            <small>Live status</small>
+            <strong id="clockLabel">--:--</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="panel hero-panel">
+          <div class="summary-grid">
+            <article class="summary-card accent-green">
+              <p>Free now</p>
+              <strong id="freeNowCount">0</strong>
+              <span>machines ready to use</span>
+            </article>
+            <article class="summary-card accent-amber">
+              <p>Need collection</p>
+              <strong id="needsPickupCount">0</strong>
+              <span>finished but still occupied</span>
+            </article>
+            <article class="summary-card accent-sky">
+              <p>Open later today</p>
+              <strong id="openTodayCount">0</strong>
+              <span>slots left in the next 8 hours</span>
+            </article>
+            <article class="summary-card accent-violet">
+              <p>My bookings</p>
+              <strong id="myBookingCount">0</strong>
+              <span>slots on your calendar</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Machines</h2>
+            <div class="legend" aria-label="Machine legend">
+              <span><i class="legend-swatch free"></i>Free</span>
+              <span><i class="legend-swatch busy"></i>Busy</span>
+              <span><i class="legend-swatch finished"></i>Needs pickup</span>
+            </div>
+          </div>
+          <div id="machineBoard" class="machine-board"></div>
+        </section>
+
+        <section class="panel booking-panel">
+          <div class="panel-header">
+            <h2>Book a machine</h2>
+          </div>
+
+          <form id="bookingForm" class="booking-form">
+            <label>
+              Machine
+              <select id="machineSelect" required></select>
+            </label>
+
+            <label>
+              Day
+              <input id="bookingDate" type="date" required />
+            </label>
+
+            <label>
+              Start time
+              <select id="timeSelect" required></select>
+            </label>
+
+            <label>
+              Duration
+              <select id="durationSelect">
+                <option value="60">1 hour</option>
+                <option value="90" selected>1.5 hours</option>
+                <option value="120">2 hours</option>
+              </select>
+            </label>
+
+            <button type="submit" class="primary-button">Book slot</button>
+          </form>
+
+          <p id="bookingMessage" class="form-message" aria-live="polite"></p>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Open slots this week</h2>
+          </div>
+          <div id="weekSchedule" class="week-schedule"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>My bookings</h2>
+          </div>
+          <div id="myBookings" class="my-bookings"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
